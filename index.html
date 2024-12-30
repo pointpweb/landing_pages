@@ -1,0 +1,996 @@
+<!---------- RESET CSS - START ---------->
+<style>
+    /***** Back to top button *****/
+
+    /* To keep everywhere ? */
+    /* .block--backtotop {
+        display: none;
+    } */
+
+    /***** Breadcrumb *****/
+
+    .block-breadcrumb ul {
+        margin: 8px 0;
+        display: flex;
+        flex-wrap: wrap;
+        white-space: normal;
+    }
+
+    .block-breadcrumb .breadcrumb li {
+        display: block;
+    }
+
+    .block-breadcrumb + #status-messages-placeholder {
+        margin: 0;
+    }
+
+    /***** Page container *****/
+
+    .section-simple-block-text .container { 
+        max-width: 1480px;
+        padding: 0;
+    }
+
+    /***** <h1></h1> *****/
+
+    /* Le <h1> de la page est en dehors du container de la landing (.lpMain), son balisage n'est pas personnalisable, si il est décoré d'une image il faut intégrer celle-ci en background-image */
+
+    .page-template-builder .builder-header {
+        margin-top: 24px;
+    }
+
+    .page-template-builder .section-template-header,
+    .section-simple-block-text .section-title {
+        margin: 0;
+    }
+
+    .page-template-builder .section-template-header .section-title {
+        position: unset;
+        left: unset;
+    }
+
+    .page-template-builder .section-template-header .container picture {
+        display: none;
+    }
+
+    .font-open-sans .section h1.section-title {
+        font-family: "Open Sans", sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+
+        /* Background style */
+        padding: 16px 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        text-align: center;
+        background-image: url('/s/imgs/pages/landing-global/title_background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    @media (min-width: 768px) {
+        .font-open-sans .section h1.section-title {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    }
+
+    /***** Landing page main container *****/
+
+    /* Utiliser la classe "lpMain" pour le container principal */
+
+    .lpMain { 
+        width: 100%;
+        max-width: 1480px;
+        margin: 24px auto;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        color: #333333;
+        display: flex;
+        flex-direction: column;
+        row-gap: 4rem;
+    }
+
+    @media (min-width: 768px) {
+        .lpMain {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    /***** Titles *****/
+
+    /*** <h2></h2> ***/
+    /* Utiliser la classe "lpTitle__h2" sur les balises <h2> */
+
+    .lpTitle__h2,
+    .block-wysiwyg h2.lpTitle__h2 {
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        font-size: 1rem;
+        line-height: 1rem;
+        font-weight: 600;           
+        text-transform: uppercase;
+    }
+
+    @media (min-width: 768px) {
+        .block-wysiwyg h2.lpTitle__h2 {
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+        }
+    }
+
+    /** h2 highlighted **/
+    /* Utiliser la classe "lpTitle__h2span" sur des balise span dans les h2 surlignés et leurs identifiers "--black" / "--orange" */
+
+    .lpTitle__h2span {
+        display: block;
+        width: fit-content;
+        padding: 6px;
+        color: #FFFFFF;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+    }
+
+    .lpTitle__h2span--black {
+        background-color: #000000;
+    }
+
+    .lpTitle__h2span--orange {
+        background-color: #E75012;
+    }
+
+    /*** <h3></h3> ***/
+    /* Utiliser la classe "lpTitle__h3" sur les balises <h3> */
+
+    .lpTitle__h3,
+    .font-open-sans .block-wysiwyg h3.lpTitle__h3 {
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+        .lpTitle__h3,
+        .font-open-sans .block-wysiwyg h3.lpTitle__h3 {
+            font-size: 1.125rem;
+            line-height: 1.625rem;
+        }
+    }
+
+    /*** <h4></h4> ***/
+    /* Utiliser la classe "lpTitle__h4" sur les balises <h4> */
+
+    .lpTitle__h4,
+    .font-open-sans .block-wysiwyg h4.lpTitle__h4 {
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        font-size: .875rem;
+        line-height: 1.375rem
+    }
+
+    @media (min-width: 768px) {
+        .lpTitle__h4,
+        .font-open-sans .block-wysiwyg h4.lpTitle__h4 {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    /***** Content *****/
+
+    /*** <p></p> ***/
+    /* Utiliser la classe "lpText" sur les balises <p> */
+
+    .lpMain p,
+    .block-wysiwyg .lpMain p {
+        font-family: "Open Sans", sans-serif;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        padding: 0;
+    }
+
+    @media (min-width: 768px) {
+        .block-wysiwyg .lpMain p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    /***** Lists *****/
+
+    /*** <ol></ol> / <ul></ul> ***/
+    /* Utiliser la classe "lpList" sur les balises <ol>/<ul> */
+
+    .lpMain ol,
+    .lpMain ul,
+    .block-wysiwyg .lpMain ol, 
+    .block-wysiwyg .lpMain ul {
+        overflow: visible;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+
+    @media (min-width: 768px) {
+        .block-wysiwyg .lpMain ol, 
+        .block-wysiwyg .lpMain ul {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    /*** <li></li> ***/
+    /* Utiliser la classe "lpList__item" sur les balises <li> */
+
+    .lpMain ol li,
+    .lpMain ul li,
+    .block-wysiwyg .lpMain ol li, 
+    .block-wysiwyg .lpMain ul li {
+        padding: 0;
+    }
+
+    .lpMain ul li:before,
+    .lpMain ol li:before,
+    .block-wysiwyg .lpMain ul li:before,
+    .block-wysiwyg .lpMain ol li:before {
+        display: none;
+    }
+
+    .block-wysiwyg .lpMain ul li.lpList__item {
+        position: relative;
+        padding-left: 16px;
+    }
+
+    .block-wysiwyg .lpMain ul li.lpList__item::before {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #E75012;
+        position: absolute;
+        left: 20px;
+        top: 8px;
+    }
+
+    /***** Links *****/
+
+    /* Utiliser la classe "lpLink" sur les balises <a> pour les liens textuels et son identifier "--uppercase" */
+
+    a.lpLink {
+        color: #E75012;
+        font-family: "Open Sans", sans-serif;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        text-decoration: underline;
+        transition: all .3s ease-out;
+    }
+
+    a.lpLink--uppercase {
+        text-transform: uppercase;
+    }
+
+    @media (min-width: 768px) {
+
+        a.lpLink {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+
+        a.lpLink:hover {
+            text-decoration-thickness: 15%;
+        }
+    }
+
+    /***** Images *****/
+
+    .lpMain img,
+    .lpMain figure,
+    .block-wysiwyg .lpMain img, 
+    .block-wysiwyg .lpMain figure {
+        margin: 0;
+    }
+
+    /***** CTAS *****/
+
+    /* Utiliser la classe "lpCTA" sur les ctas et ses identifiers "--primary" / "--secondary" */
+
+    .lpCTA,
+    .block-wysiwyg a.lpCTA {
+        display: block;
+        width: fit-content;
+        padding: 16px 26px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        font-size: .875rem;
+        line-height: 1.375rem;
+        border-radius: 26px;
+        transition: all .3s ease-out;
+    }
+
+    @media (min-width: 768px) {
+        .lpCTA,
+        .block-wysiwyg a.lpCTA {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+    }
+
+    .lpCTA--primary,
+    .block-wysiwyg a.lpCTA--primary {
+        color: #FFFFFF;
+        background-color: #e74e12;
+    }
+
+    .lpCTA--primary:hover,
+    .block-wysiwyg a.lpCTA--primary:hover {
+        background-color: #EF855A;
+    }
+
+    .lpCTA--secondary,
+    .block-wysiwyg a.lpCTA--secondary {
+        color: #000000;
+        border: 1px solid #000000;
+    }
+
+    .lpCTA--secondary:hover,
+    .block-wysiwyg a.lpCTA--secondary:hover {
+        color: #FFFFFF;
+        background-color: #000000;
+        border-color: #000000;
+    }
+
+    /***** Section HELP *****/
+
+    .lpSection.lpSection--help {
+        margin: 0 20px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 8px;
+        background-color: #F6F6F6;
+        text-align: center;
+    }
+
+    @media (min-width: 768px) {
+        .lpSection.lpSection--help {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    }
+
+    /***** Splide JS *****/
+
+    .lpMain .splide__arrows.splide__arrows--ltr .splide__arrow {
+        border-radius: 50%;
+    }
+
+    .lpMain .splide__slide img {
+        height: unset;
+    }
+
+    @media (min-width: 768px) {
+
+        .lpMain .splide__arrows {
+            display: flex;
+        }
+
+        .splide.is-initialized:not(.is-active) .splide__list {
+            display: flex !important;
+            justify-content: center;
+        }
+    }
+
+    /***** Sections *****/
+    .lpSection {
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .lpSection {
+            padding: 0 40px;
+        }
+    }
+
+    /***** Articles *****/
+    .lpArticle {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .lpArticle {
+        }
+    }
+
+    /***** Blocs width radius *****/
+    .lpBloc--radius {
+        border-radius: 0 10px 10px 10px;
+    }
+</style>
+<!---------- RESET CSS - END ---------->
+
+<!---------- CSS - START ---------->
+<style>
+    .lpSection--retrait .lpBlocIntro,
+    .lpSection--livraison .lpBlocIntro {
+        background-color: #333333;
+        padding: 16px 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .lpSection--retrait .lpBlocIntro .lpLink,
+    .lpSection--livraison .lpBlocIntro .lpLink {
+        text-align: center;
+    }
+
+    .lpSection--retrait .lpBlocIntro .lpImage ,
+    .lpSection--livraison .lpBlocIntro .lpImage {
+        width: 70px !important;
+    }
+
+    .lpSection--retrait .lpBlocIntro .lpTitle__h3,
+    .lpSection--livraison .lpBlocIntro .lpTitle__h3 {
+        color: #FFFFFF;
+    }
+
+    @media (min-width: 768px) {
+        .lpArticle--intro {
+            flex-direction: row;
+            column-gap: 16px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lpSection--retrait .lpBlocIntro, .lpSection--livraison .lpBlocIntro {
+            width: 100%;
+            max-width: 350px;
+            padding: 32px 0;
+        }
+
+        .lpArticle--intro .lpText {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .lpArticle--intro .lpLink {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .lpArticle--mises-a-dispo .lpBlocReassurance {
+        background-color: #F6F6F6;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        row-gap: .5rem;
+    }
+
+    .lpArticle--mises-a-dispo .lpBlocReassurance .lpBlocTitle {
+        display: flex;
+        flex-direction: row;
+        column-gap: 1rem;
+    }
+
+    .lpArticle--mises-a-dispo .lpBlocReassurance .lpBlocTitle .lpImage {
+        width: 24px !important;
+    }
+
+    @media (min-width: 768px) {
+        .lpArticle--mises-a-dispo {
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 16px;
+        }
+
+        .lpArticle--mises-a-dispo .lpTitle__h3 {
+            width: 100%;
+        }
+
+        .lpArticle--mises-a-dispo .lpBlocReassurance {
+            width: calc((100% - 32px) / 3);
+        }
+    }
+
+    /* FAQ */
+    .section-faq {
+        background-color: #FFFFFF;
+    }
+
+    .section-faq__group {
+        border-radius: 0px 10px 10px 10px;
+        border: 2px solid #333;
+        background: #F6F6F6;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section-faq__group .faq-item {
+        background-color: #FFFFFF;
+        border-radius: 0px 10px 10px 10px;
+        cursor: pointer;
+    }
+
+    .section-faq__group .faq-item .faq-question {
+        padding: 32px;
+        border-bottom: 1px solid #F6F6F6;
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px !important;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22px;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+    }
+
+    .section-faq__group .faq-item .faq-question .lpImage--accordon-fleche {
+        width: 16px !important;
+        transform: rotate(0deg);
+        transition: transform 0.5s ease;
+    }
+
+    .section-faq__group .faq-item.active .faq-question .lpImage--accordon-fleche {
+        transform: rotate(180deg);
+    }
+
+    .section-faq__group .faq-item .faq-answer {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        padding: 0 32px;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s ease;
+    }
+
+    .section-faq__group .faq-item.active .faq-answer {
+        padding: 32px;
+        opacity: 100;
+        max-height: 2000px;
+        visibility: visible;
+    }
+
+    .section-faq__group .lpBlocImages {
+        margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+        .section-faq__group .lpBlocImages {
+            display: flex;
+            justify-content: center;
+            column-gap: 16px;
+        }
+    }
+
+    /* FAQ */
+
+</style>
+<!---------- CSS - END ---------->
+<!---------- HTML - START ---------->
+<div class="lpMain">
+    <section class="lpSection lpSection--intro">
+        <p class="lpText">
+            Chez POINT.P, nous comprenons l'importance d'une livraison efficace et pratique pour tous nos clients. C'est pourquoi nous proposons plusieurs options pour répondre à vos besoins spécifiques.
+        </p>
+    </section>
+    <section class="lpSection lpSection--retrait">
+        <h2 class="lpTitle__h2">
+            <span class="lpTitle__h2span lpTitle__h2span--black">
+                Retrait en agence
+            </span>
+            <span class="lpTitle__h2span lpTitle__h2span--orange">
+                Gratuit
+            </span>
+        </h2>
+        <article class="lpArticle lpArticle--intro">
+            <div class="lpBloc--radius lpBlocIntro">
+                <img src="/s/imgs/pages/landing-retrait-et-livraison/retrait_drive.svg" alt="RETRAIT PAR DRIVE" class="lpImage">
+                <h3 class="lpTitle__h3">
+                    RETRAIT PAR DRIVE<br>En 2H ouvrés
+                </h3>
+            </div>
+            <div>
+                <p class="lpText">
+                    Gagnez du temps en choisissant notre option de retrait par DRIVE. Vous pouvez récupérer votre commande sans même passer par le comptoir. Il vous suffit de vous rendre à notre point de retrait DRIVE et de récupérer vos articles en un clin d'œil.
+                </p>
+                <a href="https://www.pointp.fr/drive" target="_blank" class="lpLink">En savoir plus</a>
+            </div>
+        </article>
+        <article class="lpArticle lpArticle--intro">
+            <div class="lpBloc--radius lpBlocIntro">
+                <img src="/s/imgs/pages/landing-retrait-et-livraison/retrait.svg" alt="RETRAIT" class="lpImage">
+                <h3 class="lpTitle__h3">
+                    RETRAIT<br>des marchandises dans votre agence
+                </h3>
+            </div>
+            <p class="lpText">
+                Si vous préférez échanger avec notre équipe au comptoir lors de votre passage, vous pouvez toujours passer votre commande sur notre site sans sélectionner l’option DRIVE. Notre équipe sera ravie de vous accueillir et vous aider à récupérer votre commande en toute simplicité.
+            </p>
+        </article>
+    </section>
+    <section class="lpSection lpSection--livraison">
+        <h2 class="lpTitle__h2">
+            <span class="lpTitle__h2span lpTitle__h2span--black">
+                Retrait en agence
+            </span>
+            <span class="lpTitle__h2span lpTitle__h2span--orange">
+                Gratuit
+            </span>
+        </h2>
+        <article class="lpArticle lpArticle--intro">
+            <div class="lpBloc--radius lpBlocIntro">
+                <img src="/s/imgs/pages/landing-retrait-et-livraison/livraison_48h.svg" alt="LIVRAISON EN COLIS 48H" class="lpImage">
+                <h3 class="lpTitle__h3">
+                    LIVRAISON EN COLIS 48H<br>Prix 5,90€ TTC
+                </h3>
+            </div>
+            <p class="lpText">
+                Les articles marqués “Colis 48H” sur notre site seront livrés directement sur votre chantier en 48 heures ouvrées. La livraison est effectuée par DPD, avec un tarif fixe de 5,90€ TTC par colis.
+            </p>
+        </article>
+        <article class="lpArticle lpArticle--intro">
+            <div class="lpBloc--radius lpBlocIntro">
+                <img src="/s/imgs/pages/landing-retrait-et-livraison/livraison.svg" alt="RETRAIT" class="lpImage">
+                <h3 class="lpTitle__h3">
+                    LIVRAISON SUR VOTRE CHANTIER<br>Frais variables
+                </h3>
+            </div>
+            <div>
+                <p class="lpText">
+                    Nous vous proposons un service de livraison sur chantier, directement à l’adresse de votre choix. Que vous soyez sur un chantier ou à un autre lieu de travail, nous nous assurons que vos articles vous parviennent en toute sécurité selon la date que vous aurez sélectionné. Le prix de la livraison reste variable en fonction du poids de votre commande, de la distance à parcourir et des modes de mise à disposition choisis.
+                </p>
+                <!-- <a href="" class="lpLink">En savoir plus</a> -->
+            </div>
+        </article>
+        <article class="lpArticle lpArticle--mises-a-dispo">
+            <h3 class="lpTitle__h3">Différents modes de mise à disposition</h3>
+            <div class="lpBloc--radius lpBlocReassurance">
+                <div class="lpBlocTitle">
+                    <img src="/s/imgs/pages/landing-retrait-et-livraison/voie_publique.svg" alt="Au sol sur la voie publique" class="lpImage">
+                    <h4 class="lpTitle__h4">
+                        Au sol sur la voie publique
+                    </h4>
+                </div>
+                <p class="lpText">
+                    Si vous préférez recevoir votre commande directement devant chez vous, notre option de livraison au sol sur la voie publique est parfaite pour vous. Nous nous assurerons que vos articles sont livrés en toute sécurité à l'emplacement de votre choix. 
+                </p>
+            </div>
+            <div class="lpBloc--radius lpBlocReassurance">
+                <div class="lpBlocTitle">
+                    <img src="/s/imgs/pages/landing-retrait-et-livraison/zone_exterieure.svg" alt="Au sol en zone extérieure privée" class="lpImage">
+                    <h4 class="lpTitle__h4">
+                        Au sol en zone extérieure privée
+                    </h4>
+                </div>
+                <p class="lpText">
+                    Pour une livraison plus discrète, nous pouvons déposer votre commande dans une zone extérieure privée, telle qu'un jardin ou une cour. Vous pourrez ainsi récupérer vos articles à votre convenance, en toute tranquillité. 
+                </p>
+            </div>
+            <div class="lpBloc--radius lpBlocReassurance">
+                <div class="lpBlocTitle">
+                    <img src="/s/imgs/pages/landing-retrait-et-livraison/etage.svg" alt="À l'étage" class="lpImage">
+                    <h4 class="lpTitle__h4">
+                        À l'étage
+                    </h4>
+                </div>
+                <p class="lpText">
+                    Si vous habitez dans un immeuble ou une résidence avec plusieurs étages, notre service de livraison à l'étage est là pour vous faciliter la vie.
+                </p>
+            </div>
+        </article>
+    </section>
+    <section id="faq" class="lpSection section-faq">
+        <h2 class="lpTitle__h2">
+            <span class="lpTitle__h2span lpTitle__h2span--black">Foire aux</span>
+            <span class="lpTitle__h2span lpTitle__h2span--orange">Questions</span>
+        </h2>
+        <div class="lpArticle section-faq__container">
+            <h3 class="lpTitle__h3">Conditions de livraison</h3>
+            <div class="section-faq__group">
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Déchargement de la commande</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lpText">
+                            Le chauffeur se réserve le droit de ne pas décharger la commande, et ce afin de garantir la tenue des opérations dans les conditions de sécurité requise si les conditions suivantes ne sont pas remplies :
+                        </p>
+                        <br/>
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                Le forfait concerne une livraison par camion pour une charge comprise entre 1 kilo et 8 tonnes, et ce dans un périmètre maximum de 100km autour de l’agence de rattachement choisie.
+                            </li>
+                            <li class="lpList__item">
+                                Ces frais de port incluent le transport et le déchargement au pied du camion, des services de mise à disposition plus complexes sont en sus (sauf si ces options ont été choisies ou que ces coûts ont été ajoutés par l’agence).
+                            </li>
+                            <li class="lpList__item">
+                                La date et le créneau horaire de livraison sur le site pointp.fr est donné à titre indicatif.
+                            </li>
+                            <li class="lpList__item">
+                                L'intégralité de la commande doit être payée avant la livraison (sauf pour les clients avec compte terme).
+                            </li>
+                            <li class="lpList__item">
+                                Assurez-vous lors de la réception de votre commande, que la marchandise livrée soit conforme à votre commande <a href="https://www.pointp.fr/cgv-e-commerce" target="_blank" class="lpLink">(plus d'information à l'article 6.1.2 Modalités de transport – livraison des CGV e-commerce)</a>
+                            </li>
+                            <li class="lpList__item">
+                                Assurez-vous que la rue soit bien autorisée aux véhicules de + de 3.5T.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Options de mise à disposition</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lpText">
+                            Si un mode de mise à disposition a été sélectionné, des conditions supplémentaires doivent être respectées :
+                        </p>
+                        <br/>
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                Option déchargement sur la voie publique : assurez-vous de bien avoir les autorisations nécessaires auprès de la commune concernée.
+                            </li>
+                            <li class="lpList__item">
+                                Option zone extérieure privée avec accès poids lourd : assurez-vous que la largeur de voie (5 à 7 mètres) et l'entrée du chantier (3 mètres minimum) soient suffisamment larges. Si ce n’est pas le cas, prenez l’option accès limité.
+                            </li>
+                            <li class="lpList__item">
+                                Option zone extérieure privée avec accès grue : assurez-vous qu’aucun obstacle majeur ne soit susceptible de gêner l'utilisation de la grue (murs ou clôture de plus de 2m de haut, câbles télécom ou EDF, arbres, véhicule, etc.).
+                            </li>
+                            <li class="lpList__item">
+                                Option mise à l’étage (ATTENTION RESERVEE AUX PROFESSIONNELS) : les deux conditions développées ci-dessus doivent notamment être respectées (option zone extérieure privée avec accès poids lourd + option zone extérieure privée avec accès grue).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Petites commandes</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <p class="lpText">
+                            Dans le cadre de petites commandes respectant les conditions ci-dessous, celles-ci bénéficient d’un forfait de livraison différent :
+                        </p>
+                        <br/>
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                L’ensemble de la commande fait moins de 500 kilogrammes.
+                            </li>
+                            <li class="lpList__item">
+                                Le ou les articles de la commande ont un poids unitaire inférieur ou égal à 25kg.
+                            </li>
+                            <li class="lpList__item">
+                                Le ou les articles de la commande mesurent moins de 4 mètres de longueur.
+                            </li>
+                            <li class="lpList__item">
+                                L’adresse de livraison se situe à maximum 30km de l’adresse de l’agence de rattachement choisie.
+                            </li>
+                            <li class="lpList__item">
+                                Les articles « Treillis soudés » ne sont pas éligibles à ce forfait livraison pour des raisons de sécurité.
+                            </li>
+                            <li class="lpList__item">
+                                Le montant du forfait de livraison dépend du montant en euro de votre panier.
+                            </li>
+                            <li class="lpList__item">
+                                Ces frais de livraison incluent le transport et le déchargement au pied du camion.
+                            </li>
+                            <li class="lpList__item">
+                                La date et le créneau horaire de livraison sur le site pointp.fr est donné à titre indicatif.
+                            </li>
+                            <li class="lpList__item">
+                                L'intégralité de la commande doit être payée avant la livraison (sauf pour les clients avec compte terme).
+                            </li>
+                            <li class="lpList__item">
+                                Assurez-vous lors de la réception de votre commande, que la marchandise livrée soit conforme à votre demande <a href="https://www.pointp.fr/cgv-e-commerce" target="_blank" class="lpLink">(plus d'information à l'article 6.1.2 Modalités de transport – livraison des CGV e-commerce)</a>
+                            </li>
+                        </ul>
+                        <h4 class="lpTitle__h4">
+                            Les grilles tarifaires :
+                        </h4>
+                        <div class="lpBlocImages">
+                            <img src="/s/imgs/pages/landing-retrait-et-livraison/grille_tarifaire_petite_commande_idf.jpg" alt="La grille du forfais de livraison en région île de France" class="lpImage">
+                            <img src="/s/imgs/pages/landing-retrait-et-livraison/grille_tarifaire_petite_commande_hors_idf.jpg" alt="La grille du forfais de livraison hors région île de France" class="lpImage">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="lpTitle__h3">Exemples de commande en ligne</h3>
+            <div class="section-faq__group">
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Commande de matériaux lourds</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                <strong>Poids et taille du colis :</strong> entre 1 et 8 tonnes
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Exemple de produit :</strong> sacs de ciment, big bag pour un gros chantier
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Modes de retrait :</strong>
+                                <ul class="lpList">
+                                    <li class="lpList__item">
+                                        <strong>Retrait magasin :</strong> gratuit
+                                    </li>
+                                    <li class="lpList__item">
+                                        <strong>Livraison :</strong> frais variables selon distance (max 100 km), inclut déchargement au pied du camion
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Commande de produits longs avec grue</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                <strong>Poids et taille du colis :</strong> au-delà de 25 kg, longueur de 4 mètres
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Exemple de produit :</strong> poutres métalliques
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Modes de retrait :</strong>
+                                <ul class="lpList">
+                                    <li class="lpList__item">
+                                        <strong>Retrait magasin :</strong> gratuit
+                                    </li>
+                                    <li class="lpList__item">
+                                        <strong>Livraison :</strong> tarif supplémentaire pour option accès grue
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Petite commande</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                <strong>Poids et taille du colis :</strong> moins de 500 kg, articles < 25 kg
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Exemple de produit :</strong> peinture, outils
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Modes de retrait :</strong>
+                                <ul class="lpList">
+                                    <li class="lpList__item">
+                                        <strong>Retrait magasin :</strong> gratuit
+                                    </li>
+                                    <li class="lpList__item">
+                                        <strong>Livraison :</strong> forfait de livraison différent selon le montant total de la commande (distance max 30 km)
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" tabindex="0" role="button">
+                    <div class="faq-question">
+                        <span>Commande d'outillage et quincaillerie en colis 48H</span>
+                        <img class="lpImage lpImage--accordon-fleche"
+                            src="/s/imgs/pages/landing-retrait-et-livraison/accordeon_fleche.svg"
+                            alt="Fleche">
+                    </div>
+                    <div class="faq-answer">
+                        <ul class="lpList">
+                            <li class="lpList__item">
+                                <strong>Poids et taille du colis :</strong> articles de petite taille, généralement moins de 25 kg avec mention Colis 48H
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Exemple de produit :</strong> perceuse, visserie
+                            </li>
+                            <li class="lpList__item">
+                                <strong>Modes de retrait :</strong>
+                                <ul class="lpList">
+                                    <li class="lpList__item">
+                                        <strong>Retrait magasin :</strong> gratuit
+                                    </li>
+                                    <li class="lpList__item">
+                                        <strong>Livraison 48H :</strong> 5,90€ TTC
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="lpSection lpSection--help lpBloc--radius">
+        <h2 class="lpTitle__h2">Besoin d'aide ?</h2>
+        <p class="lpText">N'hésitez pas à nous contacter via notre <a aria-label="Contacter l'assistance client digitale de POINT.P" href="https://www.pointp.fr/contactez-nous" class="lpLink">page de contact</a>.</p>
+    </section>
+</div>
+<!---------- HTML - END ---------->
+<!---------- JS - START ---------->
+<script defer>
+    document.querySelectorAll(".faq-item").forEach((item) => {
+        item.addEventListener("click", () => {
+            toggleActiveClass(item);
+        });
+
+        item.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                toggleActiveClass(item);
+            }
+        });
+    });
+
+    function toggleActiveClass(item) {
+        const isActive = item.classList.contains("active");
+        removeActiveClass();
+        if (!isActive) {
+            item.classList.add("active");
+        }
+    }
+
+    function removeActiveClass() {
+        document.querySelectorAll(".faq-item.active").forEach((activeItem) => {
+            activeItem.classList.remove("active");
+        });
+    }
+</script>
+<!---------- JS - END ---------->
